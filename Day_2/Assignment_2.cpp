@@ -27,51 +27,53 @@ class Date{
        cin>>year;
     }
 
-    void isLeapYear(){
+    bool isLeapYear(){
         if((year%4==0 && year%100!=0) || year%400 == 0){
-            cout<<"This year "<<" "<<year<<" "<<"is Leap Year"<<endl;
+            return true;
         }
         else{
-            cout<<"This year"<<" "<<year<<" "<<"is not a Leap Year"<<endl;
+            return false;
         }
     }
 
 };
 
 void menu(){
-    cout<<"1.Initialize Date"<<endl;
-    cout<<"2.Print Date"<<endl;
-    cout<<"3.Accept Date"<<endl;
-    cout<<"4.Check is it a Leap Year"<<endl;
-    cout<<"5.Exit"<<endl;
+    cout<<"1.Print Date"<<endl;
+    cout<<"2.Accept Date"<<endl;
+    cout<<"3.Check is it a Leap Year"<<endl;
+    cout<<"4.Exit"<<endl;
 }
 
 int main() {
     Date dt;
+    dt.initDate();
     int n;
-    menu();
-    cin>>n;
-    while( n != 5){
+    do
+    {
         menu();
         cin>>n;
         switch(n){
             case 1:
-             dt.initDate(); 
-             break;
-            case 2:
              dt.printDate();
              break;
-            case 3:
+            case 2:
              dt.acceptDate();
              break;
-            case 4:
-             dt.isLeapYear();
+            case 3:         
+             if (dt.isLeapYear() ){
+                cout<<"It is a Leap Year"<<endl;
+             }
+             else{
+                cout<<"Not a Leap Year"<<endl;
+             }
              break;
-            case 5:
+            case 4:
              cout<<"Exit";
              break;
             default:
              cout<<"Invalid option try again"<<endl;
         }
-    }
+    }while (n!=4);
+    
 }
