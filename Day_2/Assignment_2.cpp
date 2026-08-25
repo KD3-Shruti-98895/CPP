@@ -49,6 +49,8 @@ void menu(){
 int main() {
     Date dt;
     int n;
+    menu();
+    cin>>n;
     while( n != 5){
         menu();
         cin>>n;
